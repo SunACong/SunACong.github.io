@@ -27,6 +27,7 @@ export default sidebar({
     "start"
   ],
   "/install-deploy/": [
-    "vuepress-deploy"
+    "vuepress-deploy",
+    "docker-install"
   ]
 });
