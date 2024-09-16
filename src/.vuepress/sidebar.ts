@@ -25,5 +25,8 @@ export default sidebar({
   ],
   "/vue2-to-vue3/": [
     "start"
+  ],
+  "/install-deploy/": [
+    "vuepress-deploy"
   ]
 });

@@ -3,6 +3,7 @@ import { navbar } from "vuepress-theme-hope";
 export default navbar([
   "/",
   "/demo/",
+  "/install-deploy/",
   "/vue2-to-vue3/",
   {
     text: "博文",
