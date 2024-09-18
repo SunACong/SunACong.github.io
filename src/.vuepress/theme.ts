@@ -4,18 +4,18 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "https://mister-hope.github.io",
+  hostname: "https://sunacong.github.io",
 
   author: {
     name: "SunByte",
-    url: "https://mister-hope.com",
+    url: "https://sunacong.github.io/",
   },
 
   iconAssets: "fontawesome-with-brands",
 
   logo: "/logo.png",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "SunACong/sunacong.github.io",
 
   docsDir: "src",
   // 导航栏
