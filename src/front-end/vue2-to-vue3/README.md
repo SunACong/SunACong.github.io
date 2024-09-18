@@ -1,9 +1,9 @@
 ---
-title: vue2-to-vue3
+title: Vue3快速入门
 # 你可以自定义封面图片
 cover: 
 # 这是页面的图标
-icon: file
+icon: 
 # 这是侧边栏的顺序
 order: 3
 # 设置作者

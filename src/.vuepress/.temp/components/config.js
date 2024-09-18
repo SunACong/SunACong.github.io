@@ -5,6 +5,7 @@ import { useScriptTag } from "E:/Project-Doc/blog/node_modules/@vueuse/core/inde
 import FontIcon from "E:/Project-Doc/blog/node_modules/vuepress-plugin-components/lib/client/components/FontIcon.js";
 import Badge from "E:/Project-Doc/blog/node_modules/vuepress-plugin-components/lib/client/components/Badge.js";
 import VPCard from "E:/Project-Doc/blog/node_modules/vuepress-plugin-components/lib/client/components/VPCard.js";
+import BiliBili from "E:/Project-Doc/blog/node_modules/vuepress-plugin-components/lib/client/components/BiliBili.js";
 
 import "E:/Project-Doc/blog/node_modules/vuepress-plugin-components/lib/client/styles/sr-only.scss";
 
@@ -13,6 +14,7 @@ export default defineClientConfig({
     if(!hasGlobalComponent("FontIcon")) app.component("FontIcon", FontIcon);
     if(!hasGlobalComponent("Badge")) app.component("Badge", Badge);
     if(!hasGlobalComponent("VPCard")) app.component("VPCard", VPCard);
+    if(!hasGlobalComponent("BiliBili")) app.component("BiliBili", BiliBili);
     
   },
   setup: () => {

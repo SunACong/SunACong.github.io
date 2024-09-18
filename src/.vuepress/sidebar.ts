@@ -10,12 +10,6 @@ export default sidebar({
       link: "demo/",
       children: "structure",
     },
-    {
-      text: "文章",
-      icon: "book",
-      prefix: "posts/",
-      children: "structure",
-    },
     "intro",
     {
       text: "幻灯片",
@@ -23,8 +17,25 @@ export default sidebar({
       link: "https://plugin-md-enhance.vuejs.press/zh/guide/content/revealjs/demo.html",
     },
   ],
-  "/vue2-to-vue3/": [
-    "01-start" 
+  "/front-end/": [
+    {
+      text: "vue3快速入门",
+      // icon: "laptop-code",
+      prefix: "vue2-to-vue3/",
+      // link: "vue2-to-vue3/",
+      children: [
+        {text: "基础知识", icon: "file", link: "01-start"},
+        {text: "生命周期", icon: "file", link: "02-lifecycle"},
+      ],
+    },
+    {
+      text: "快速上手react",
+      prefix: "qucik-to-react/",
+      // link: "qucik-to-react/"
+      children: [
+        
+      ],
+    }
   ],
   "/install-deploy/": [
     "vuepress-deploy",
