@@ -29,6 +29,55 @@ copyright: © 2024 SunByte. All rights reserved.
 
 本章将带你熟悉Vue 3的生命周期钩子，了解它们在组件中的作用和用法。
 
-![](https://cn.vuejs.org/assets/lifecycle_zh-CN.W0MNXI0C.png)
-
 <!-- more -->
+
+## 生命周期示意图
+
+![vue3生命周期钩子](https://cn.vuejs.org/assets/lifecycle_zh-CN.W0MNXI0C.png)
+
+
+## Vue 3 生命周期钩子
+
+Vue 3 的生命周期钩子是作为 Composition API 的一部分引入的。它们以函数的形式存在，可以在 `setup` 函数中导入并使用。
+
+::: tip
+vue3引入了新的生命周期钩子，如果想使用**组合式的API**，需要在setup中使用。
+
+但是您仍然可以在vue3项目中使用**选项式的API**，但是并不建议您混合使用。
+:::
+
+
+如果您想了解更多vue3中生命周期钩子的使用，可以参考以下链接：[官方文档：生命周期钩子API](https://cn.vuejs.org/api/composition-api-lifecycle.html)
+
+## 使用示例
+
+```javascript
+import { onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue';
+
+export default {
+  setup() {
+    onBeforeMount(() => {
+      console.log('组件挂载前');
+    });
+
+    onMounted(() => {
+      console.log('组件已挂载');
+    });
+
+    onBeforeUpdate(() => {
+      console.log('组件更新前');
+    });
+
+    onUpdated(() => {
+      console.log('组件已更新');
+    });
+
+    onBeforeUnmount(() => {
+      console.log('组件卸载前');
+    });
+
+    onUnmounted(() => {
+      console.log('组件已卸载');
+    });
+  }
+};

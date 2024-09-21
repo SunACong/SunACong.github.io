@@ -30,8 +30,6 @@ copyright: Copyright (c) 2024, SunByte.
 
 <Catalog />
 
-# 本章说明
+**【参考目录】**：
 
-- 本章来源：[从0开始手把手带你入门Vue3-全网最全(1.1w字)](https://blog.csdn.net/qq_43655374/article/details/122324620)
-
-- 视频复现，包括自己之前生疏的知识点
+  - [官方指南](https://cn.vuejs.org/guide)
