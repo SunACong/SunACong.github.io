@@ -27,6 +27,7 @@ export default sidebar({
         {text: "基础知识", icon: "file", link: "01-start"},
         {text: "生命周期", icon: "file", link: "02-lifecycle"},
         {text: "侦听器", icon: "file", link: "03-watch"},
+        {text: "计算属性", icon: "file", link: "04-compute"},
       ],
     },
     {
