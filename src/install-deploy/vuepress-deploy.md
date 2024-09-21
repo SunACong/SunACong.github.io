@@ -1,16 +1,12 @@
 ---
 # 这是文章的标题
 title: vuepress-theme-hope部署
-# 你可以自定义封面图片
-cover: 
 # 这是页面的图标
 icon: file
 # 这是侧边栏的顺序
 order: 1
 # 设置作者
 author: SunByte
-# 设置写作时间
-date: 2024-09-16
 # 一个页面可以有多个分类
 category:
   - 使用指南
