@@ -7,8 +7,6 @@ icon: file
 order: 1
 # 设置作者
 author: SunByte
-# 设置写作时间
-date: 2024-09-19
 # 一个页面可以有多个分类
 category:
   - 知识文档
