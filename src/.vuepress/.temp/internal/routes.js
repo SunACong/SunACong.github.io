@@ -66,7 +66,7 @@ export const routes = Object.fromEntries([
   ["/article/", { loader: () => import(/* webpackChunkName: "article_index.html" */"E:/Project-Doc/blog/src/.vuepress/.temp/pages/article/index.html.js"), meta: {"t":"文章","I":false} }],
   ["/star/", { loader: () => import(/* webpackChunkName: "star_index.html" */"E:/Project-Doc/blog/src/.vuepress/.temp/pages/star/index.html.js"), meta: {"t":"星标","I":false} }],
   ["/timeline/", { loader: () => import(/* webpackChunkName: "timeline_index.html" */"E:/Project-Doc/blog/src/.vuepress/.temp/pages/timeline/index.html.js"), meta: {"t":"时间轴","I":false} }],
-  ["/front-end/vue2-to-vue3/03-watch.html", { loader: () => import(/* webpackChunkName: "front-end_vue2-to-vue3_03-watch.html" */"E:/Project-Doc/blog/src/.vuepress/.temp/pages/front-end/vue2-to-vue3/03-watch.html.js"), meta: {"a":"SunByte","d":1726704000000,"l":"2024年9月19日","c":["知识文档"],"g":["vue"],"u":false,"e":"<p>Vue 3 中的watch与vue2中的watch在使用方式上更加便捷，并且引入了新的watchEffect函数，让侦听器变得更加灵活。</p>\n","r":{"minutes":3.89,"words":1166},"t":"监听器","i":"file","O":1,"y":"a"} }],
+  ["/front-end/vue2-to-vue3/03-watch.html", { loader: () => import(/* webpackChunkName: "front-end_vue2-to-vue3_03-watch.html" */"E:/Project-Doc/blog/src/.vuepress/.temp/pages/front-end/vue2-to-vue3/03-watch.html.js"), meta: {"a":"SunByte","d":1726704000000,"l":"2024年9月19日","c":["知识文档"],"g":["vue"],"u":false,"e":"<p>Vue 3 中的watch与vue2中的watch在使用方式上更加便捷，并且引入了新的watchEffect函数，让侦听器变得更加灵活。</p>\n","r":{"minutes":4.02,"words":1207},"t":"监听器","i":"file","O":1,"y":"a"} }],
 ]);
 
 if (import.meta.webpackHot) {

@@ -200,3 +200,8 @@ export default {
 5. **使用场景**：
     - watchEffect 适合不需要新旧值比较的副作用操作。<br>
     - watch 适合需要根据数据变化执行具体逻辑的场景。
+
+## 参考文档
+
+- [终于彻底搞懂 Watch、WatchEffect 了，原来功能如此强大！](https://segmentfault.com/a/1190000043023592#item-1-4)
+- [Vue3中的副作用过期问题（watchEffect篇、下）](https://juejin.cn/post/7116897869436551199)
