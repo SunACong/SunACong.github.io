@@ -53,6 +53,8 @@ createApp(App)
 
 在vue3中你可以在setup中导入组件，无需显示注册。
 
+如果你没有在setup中导入组件，那么你需要在components选项式中显式注册。
+
 ```javascript
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue"
@@ -63,21 +65,6 @@ import HelloWorld from "./components/HelloWorld.vue"
 </template> 
 ```
 
-如果你没有在setup中导入组件，那么你需要在components选项式中显式注册。
-
-```javascript
-import HelloWorld from "./components/HelloWorld.vue"
-
-export default {
-  components: {
-    HelloWorld
-  },
-  setup() {
-    // ...
-  }
-}
-
-```
 ::: warning 注意事项
 1. 在命名组件时，通常采用PascalCase（帕斯卡命名法），即每个单词的首字母大写，例如：`HelloWorld`。
 
@@ -88,7 +75,115 @@ export default {
 
 ## Props
 
+### 声明一个Props
+
+在使用 `<script setup>` 的单文件组件中，`props` 可以使用 `defineProps()` 宏来声明：
+
+```vue
+<script setup>
+const props = defineProps(['foo'])
+
+console.log(props.foo)
+</script>
+```
+
+通常建议用对象形式的`props`来声明，代码可读性更高，还可以对`props`进行类型检查。
+
+### 传递Props细节
+
+1. **Props命名规范**
+
+在传递`props`时命名往往采用`camelCase`方式。
+
+```javascript
+defineProps({
+  greetingMessage: String
+})
+
+<span>{{ greetingMessage }}</span>
+```
+在父组件向子组件传递`props`时通常采用 `kebab-case` 形式。
+```javascript
+<MyComponent greeting-message="hello" />
+```
+2. **传递的值类型**
+
+我们只选择特殊的数据类型来介绍。
+
+Boolean: 
+```vue
+<!-- Boolean 仅写上 prop 但不传值，会隐式转换为 `true` -->
+<BlogPost is-published />
+
+<!-- 等同于传入 :is-published="false" -->
+<BlogPost />
+```
+Object: 
+```vue
+const post = {
+  id: 1,
+  title: 'My Journey with Vue'
+}
+
+<BlogPost v-bind="post" />
+// 上面这段代码等价于下面这段代码
+<BlogPost :id="post.id" :title="post.title" />
+```
+
+### 单向数据流
+
+所有的 props 都遵循着单向绑定原则，props 因父组件的更新而变化，自然地将新的状态向下流往子组件，而不会逆向传递。
+
+如果你需要更改，一般建议有两种方式：
+
+1. **子组件重新定义**
+
+```js
+const props = defineProps(['initialCounter'])
+
+// 计数器只是将 props.initialCounter 作为初始值
+// 像下面这样做就使 prop 和后续更新无关了
+const counter = ref(props.initialCounter)
+```
+
+2. **利用计算属性**
+
+```js
+const props = defineProps(['size'])
+
+// 该 prop 变更时计算属性也会自动更新
+const normalizedSize = computed(() => props.size.trim().toLowerCase())
+```
+
 ## 事件
+
+可以通过`$emit`来出发自定义事件
+```vue
+<button @click="$emit('someEvent')">Click Me</button>
+```
+父组件可以通过 @ 来监听事件
+
+在子组件自定义事件时，建议使用`camelCase` 形式，在父组件监听时使用`kebab-case`的方式来传递事件名。
+
+```vue
+<MyComponent @some-event="callback" />
+```
+::: warning
+1. 在 `<template>` 中使用的 `$emit` 方法不能在组件的 `<script setup>` 部分中使用，但 `defineEmits()` 会返回一个相同作用的函数。
+2. `defineEmits`只能在 `<script setup>` 的顶级作用域中使用。
+:::
+
+通过`defineEmits`来显式的定义事件，能解决上述问题一。
+
+```vue
+<script setup>
+const emit = defineEmits(['inFocus', 'submit'])
+
+function buttonClick() {
+  emit('submit')
+}
+</script>
+```
 
 ## 组件v-model
 
