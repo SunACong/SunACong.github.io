@@ -33,7 +33,7 @@ jobs:
           npm run docs:build
           > src/.vuepress/dist/.nojekyll
       - name: 部署文档
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.6.4
         env:
           # 这是你在 GitHub 上创建的个人访问令牌
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
