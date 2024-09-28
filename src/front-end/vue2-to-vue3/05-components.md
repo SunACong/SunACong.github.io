@@ -157,23 +157,22 @@ const normalizedSize = computed(() => props.size.trim().toLowerCase())
 
 ## 事件
 
-可以通过`$emit`来出发自定义事件
+子组件`<template>` 可以通过`$emit`来触发自定义事件
 ```vue
 <button @click="$emit('someEvent')">Click Me</button>
 ```
-父组件可以通过 @ 来监听事件
+在 `<template>` 中使用的 `$emit` 方法不能在组件的 `<script setup>` 部分中使用，但 `defineEmits()` 会返回一个相同作用的函数。
 
-在子组件自定义事件时，建议使用`camelCase` 形式，在父组件监听时使用`kebab-case`的方式来传递事件名。
+父组件可以通过 @ 来监听事件
 
 ```vue
 <MyComponent @some-event="callback" />
 ```
-::: warning
-1. 在 `<template>` 中使用的 `$emit` 方法不能在组件的 `<script setup>` 部分中使用，但 `defineEmits()` 会返回一个相同作用的函数。
-2. `defineEmits`只能在 `<script setup>` 的顶级作用域中使用。
+::: tip
+1. 在子组件自定义事件时，建议使用`camelCase` 形式，在父组件监听时使用`kebab-case`的方式来传递事件名。
 :::
 
-通过`defineEmits`来显式的定义事件，能解决上述问题一。
+通过`defineEmits`来显式的定义事件。
 
 ```vue
 <script setup>
@@ -184,17 +183,126 @@ function buttonClick() {
 }
 </script>
 ```
-
-## 组件v-model
-
-## 透传Attribute
+`defineEmits`只能在 `<script setup>` 的顶级作用域中使用。
 
 ## 插槽
 
-## 依赖注入
+vue3 中有三种插槽使用方式与 vue2 类似，分别是：默认插槽、具名插槽、作用域插槽。
 
-## 异步组件
+### 默认插槽
+
+在外部没有提供任何内容的情况下，可以为插槽指定默认内容。
+
+子组件 `MyComponent`
+
+```vue 子组件
+<template>
+  <div>
+    <slot>
+      <p>默认插槽内容</p>
+    </slot>
+  </div>
+</template>
+```
+
+父组件
+
+```vue 父组件
+<template>
+  <div>
+    <MyComponent>
+      <p>我是父组件自定义插槽内容</p>
+    </MyComponent>
+  </div>
+</template>
+```
+### 具名插槽
+
+子组件 `MyComponent`
+
+```vue 子组件
+<template>
+  <div>
+    <slot name="header">
+      <p>默认插槽内容</p>
+    </slot>
+  </div>
+</template>
+```
+
+父组件 
+
+`v-slot` 有对应的简写 `#`，因此 `<template v-slot:header>` 可以简写为 `<template #header>`
+
+```vue 父组件
+<template>
+  <div>
+    <MyComponent>
+      <template #header>
+        <p>我是父组件自定义插槽内容</p>
+      </template>
+    </MyComponent>
+  </div>
+</template>
+```
+
+### 作用域插槽
+
+默认情况下，父组件是无法访问到子组件的内容的。<br>
+
+然而在某些场景下插槽的内容可能想要同时使用父组件域内和子组件域内的数据。要做到这一点，我们需要一种方法来让子组件在渲染时将一部分数据提供给插槽。<br>
+
+可以像对组件传递 `props` 那样，向一个插槽的出口上传递 `attributes`：
+
+子组件 `MyComponent`
+
+```vue 子组件
+<template>
+  <div>
+    <slot :user="user">
+      <p>默认插槽内容</p>
+    </slot>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const user = ref({
+  name: 'John Doe',
+  age: 30
+})
+</script>
+```
+
+父组件
+
+```vue 父组件
+<template>
+  <div>
+    <MyComponent>
+      <template #default="slotProps">
+        <p>我是父组件自定义插槽内容，用户名：{{ slotProps.user.name }}</p>
+      </template>
+    </MyComponent>
+  </div>
+</template>
+```
+
+子组件传入插槽的 `props` 作为了 `v-slot` 指令的值，可以在插槽内的表达式中访问。
+
+![子组件提供attributes给父组件](https://cn.vuejs.org/assets/scoped-slots.B67tIPc5.svg)
+
+## 待更新 
+
+本章还有以下几个知识点未更新，这些知识点需要在以后的实际项目中更容易掌握，请期待。。。。
+
+- 透传Attribute
+
+- 依赖注入
+
+- 异步组件
 
 ## 参考文档
 
-- [官网：计算属性](https://cn.vuejs.org/guide/essentials/computed.html#basic-example)
+- [官网：组件](https://cn.vuejs.org/guide/components/registration.html)
