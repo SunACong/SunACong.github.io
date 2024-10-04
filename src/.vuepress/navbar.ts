@@ -14,6 +14,15 @@ export default navbar([
     ],
   },
   {
+    text: "项目实战",
+    icon: "laptop-code",
+    prefix: "/project/",
+    children: [
+      "Practical-Experience/",
+      "S-Pay-Mall/",
+    ]
+  },
+  {
     text: "V2 文档",
     icon: "book",
     link: "https://theme-hope.vuejs.press/zh/",

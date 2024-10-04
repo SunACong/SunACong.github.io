@@ -51,6 +51,8 @@ export default hopeTheme({
   encrypt: {
     config: {
       "/demo/encrypt.html": ["1234"],
+      "/project/S-Pay-Mall": ["268388"],
+      "/project/Practical-Experience/01-数据库表设计规范.html": ["268388"],
     },
   },
 
