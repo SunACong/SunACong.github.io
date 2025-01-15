@@ -17,10 +17,10 @@ export default sidebar({
       link: "https://plugin-md-enhance.vuejs.press/zh/guide/content/revealjs/demo.html",
     },
   ],
-  "/front-end/": [
+  "/前端/": [
     {
-      text: "vue3快速入门",
-      prefix: "vue2-to-vue3/",
+      text: "vue3关键知识点",
+      prefix: "vue3教程/",
       children: [
         {text: "基础知识", icon: "", link: "01-start"},
         {text: "生命周期", icon: "", link: "02-lifecycle"},
@@ -30,10 +30,17 @@ export default sidebar({
       ],
     },
     {
-      text: "快速上手react",
-      prefix: "qucik-to-react/",
+      text: "react快速入门",
+      prefix: "react快速入门/",
       children: [
          
+      ],
+    },
+    {
+      text: "typescript入门",
+      prefix: "typescript入门/",
+      children: [
+        {text: "基础", icon: "", link: "01-typescript-basic"}
       ],
     }
   ],
@@ -47,7 +54,7 @@ export default sidebar({
       ],
     },
   ],
-  "/install-deploy/": [
+  "/安装部署/": [
     "vuepress-deploy",
     "docker-install"
   ]

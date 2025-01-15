@@ -3,14 +3,15 @@ import { navbar } from "vuepress-theme-hope";
 export default navbar([
   "/",
   "/demo/",
-  "/install-deploy/",
+  "/安装部署/",
   {
     text: "前端",
     icon: "laptop-code",
-    prefix: "/front-end/",
+    prefix: "/前端/",
     children: [
-      "vue2-to-vue3/",
-      "qucik-to-react/"
+      "vue3教程/",
+      "react快速入门/",
+      "typescript入门/"
     ],
   },
   {

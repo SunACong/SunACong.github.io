@@ -1,5 +1,5 @@
 ---
-title: Vue3快速入门
+title: Vue3教程
 # 你可以自定义封面图片
 cover: 
 # 这是页面的图标
